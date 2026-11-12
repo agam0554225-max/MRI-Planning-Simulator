@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MRI Planning Simulator</title><link rel="stylesheet" href="/static/style.css"></head>
+<body><header><div><b>MRI PLANNING SIMULATOR</b><small>Educational workstation · DICOM local viewer</small></div><label class="upload">تحميل فحص ZIP / DICOM<input id="files" type="file" multiple accept=".zip,.dcm,.dicom,application/zip,application/dicom"></label></header>
+<div class="shell"><aside><h3>Study Browser</h3><p id="study">لم يتم تحميل فحص بعد</p><div class="hint">ارفع ملف ZIP للفحص كاملًا مباشرة، أو اختر ملفات DICOM متعددة. يدعم هذا الإصدار حاليًا السلاسل القريبة من Axial.</div><h3>Planning Parameters</h3>
+<label>FOV (mm)<input id="fov" type="number" value="220"></label><label>Slice Thickness (mm)<input id="thick" type="number" value="3" step=".5"></label><label>Slice Gap (mm)<input id="gap" type="number" value="0" step=".5"></label><label>Number of Slices<input id="count" type="number" value="48"></label><label>Planning angle (°)<input id="angle" type="range" min="-45" max="45" value="0"><span id="angval">0°</span></label>
+<button id="reset">إعادة ضبط التخطيط</button><p class="disclaimer">للتدريب فقط — ليس للاستخدام التشخيصي أو لاتخاذ قرارات سريرية.</p></aside>
+<main><div class="toolbar"><span id="status">في انتظار ملفات DICOM</span><span>Cross-reference · MPR</span></div><section class="views">
+<article><div class="viewhead">SAGITTAL <span id="sagidx">—</span></div><div class="viewport"><img id="sag" alt="Sagittal view"><canvas id="sagover"></canvas></div><input id="sagSlider" type="range" min="0" max="10" value="5"></article>
+<article><div class="viewhead">CORONAL <span id="coridx">—</span></div><div class="viewport"><img id="cor" alt="Coronal view"><canvas id="corover"></canvas></div><input id="corSlider" type="range" min="0" max="10" value="5"></article>
+<article><div class="viewhead">AXIAL <span id="axidx">—</span></div><div class="viewport"><img id="ax" alt="Axial view"><canvas id="axover"></canvas></div><input id="axSlider" type="range" min="0" max="10" value="5"></article>
+</section><section class="lower"><div><b>Planning controls</b><p>حرّك المؤشرات لتغيير موضع المقاطع الثلاثة. اسحب داخل نافذة التخطيط لتحريك علامة التخطيط، واستخدم شريط الزاوية لتدويرها.</p></div><div class="legend"><i></i> Planning reference<br><i class="blue"></i> Crosshair</div></section></main></div>
+<script src="/static/app.js"></script></body></html>
